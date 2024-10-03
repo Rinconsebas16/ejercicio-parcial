@@ -1,0 +1,113 @@
+public class Motor {
+    private int cilindrada;
+    private double velocidadMax;
+    private int caballosFuerza;
+    private String tipoCombustible;
+
+    public Motor() {
+        this.cilindrada = 1400;
+        this.velocidadMax = 200.0;
+        this.caballosFuerza = 120;
+        this.tipoCombustible = "Gasolina";
+    }
+
+    public Motor(int cilindrada, double velocidadMax, int caballosFuerza, String tipoCombustible) {
+        this.cilindrada = cilindrada;
+        this.velocidadMax = velocidadMax;
+        this.caballosFuerza = caballosFuerza;
+        this.tipoCombustible = tipoCombustible;
+    }
+
+    public int getCilindrada() {
+        return cilindrada;
+    }
+
+    public double getVelocidadMaxima() {
+        return velocidadMax;
+    }
+
+    public int getCaballosFuerza() {
+        return caballosFuerza;
+    }
+
+    public String getTipoCombustible() {
+        return tipoCombustible;
+    }
+
+    public void setCilindrada(int cilindrada) {
+        this.cilindrada = cilindrada;
+    }
+
+    public void setVelocidadMaxima(double velocidadMax) {
+        this.velocidadMax = velocidadMax;
+    }
+
+    public void setCaballosFuerza(int caballosFuerza) {
+        this.caballosFuerza = caballosFuerza;
+    }
+
+    public void setTipoCombustible(String tipoCombustible) {
+        this.tipoCombustible = tipoCombustible;
+    }
+
+    public void imprimirMotor() {
+        System.out.println("Cilindrada: " + cilindrada);
+        System.out.println("Velocidad Maxima: " + velocidadMax + " km/h");
+        System.out.println("Caballos de Fuerza: " + caballosFuerza);
+        System.out.println("Tipo de Combustible: " + tipoCombustible);
+    }
+}
+
+public class Vehiculo {
+    private String placa;
+    private String marca;
+    private Motor motor;
+
+    public Vehiculo(String placa, String marca, Motor motor) {
+        this.placa = placa;
+        this.marca = marca;
+        this.motor = motor;
+    }
+
+    public String getPlaca() {
+        return placa;
+    }
+
+    public void setPlaca(String placa) {
+        this.placa = placa;
+    }
+
+    public String getMarca() {
+        return marca;
+    }
+
+    public void setMarca(String marca) {
+        this.marca = marca;
+    }
+
+    public Motor getMotor() {
+        return motor;
+    }
+
+    public void setMotor(Motor motor) {
+        this.motor = motor;
+    }
+
+    public void imprimirVehiculo() {
+        System.out.println("Placa: " + placa);
+        System.out.println("Marca: " + marca);
+        motor.imprimirMotor();
+    }
+
+    public static void main(String[] args) {
+        Motor motor1 = new Motor();
+        Vehiculo vehiculo1 = new Vehiculo("ABC123", "Toyota", motor1);
+        vehiculo1.imprimirVehiculo();
+
+        vehiculo1.setPlaca("XYZ987");
+        vehiculo1.getMotor().setVelocidadMaxima(240.0);
+
+        System.out.println("\nDespues de modificar algunos atributos:");
+        vehiculo1.imprimirVehiculo();
+    }
+}
